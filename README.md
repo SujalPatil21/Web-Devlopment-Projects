@@ -4,7 +4,7 @@ A collection of beginner-friendly web development projects built using **HTML, C
 
 ---
 
-## 📌 Purpose
+##  Purpose
 
 This repository is created to:
 
@@ -15,7 +15,7 @@ This repository is created to:
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - HTML5  
 - CSS3  
@@ -23,7 +23,7 @@ This repository is created to:
 
 ---
 
-## ✅ Projects Included
+##  Projects Included
 
 - Landing Pages  
 - Forms & Validation  
@@ -36,7 +36,7 @@ This repository is created to:
 
 ---
 
-## 🎯 Goals
+##  Goals
 
 - Build strong frontend foundation  
 - Prepare for advanced frameworks  
