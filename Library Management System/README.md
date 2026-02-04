@@ -8,8 +8,6 @@ This project allows users to add book details through a form and display them dy
 ## Live Website
 https://sujalpatil21.github.io/Web-Devlopment-Projects/Library%20Management%20System/
 
-(Replace this link with your actual deployed URL)
-
 ---
 
 ## Description
