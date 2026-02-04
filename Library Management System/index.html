@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" class="logo">
+    <h1>Library Management System</h1>
+</header>
+
+<!-- Banner -->
+<div class="banner">
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+</div>
+
+<!-- Main Container -->
+<div class="container">
+
+    <!-- Add Book -->
+    <section class="form-section">
+        <h2>Add New Book</h2>
+
+        <form id="bookForm">
+
+            <label>Book Name</label>
+            <input type="text" id="bookName" required>
+
+            <label>Author</label>
+            <input type="text" id="author" required>
+
+            <label>Book ID</label>
+            <input type="text" id="bookId" required>
+
+            <label>Category</label>
+            <input type="text" id="category" required>
+
+            <button type="submit">Add Book</button>
+
+        </form>
+    </section>
+
+    <!-- Book Table -->
+    <section class="table-section">
+        <h2>Available Books</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+
+            <tbody id="bookTableBody">
+            </tbody>
+
+        </table>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
