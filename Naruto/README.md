@@ -5,7 +5,9 @@ A browser-based hand tracking project built using MediaPipe Hands, where opening
 This project uses your webcam to detect hand landmarks and overlays animated visual effects based on hand gestures.
 
 ---
+## Website 
 
+https://sujalpatil21.github.io/Web-Devlopment-Projects/Naruto/
 ## Features
 
 - Real-time hand tracking using MediaPipe
