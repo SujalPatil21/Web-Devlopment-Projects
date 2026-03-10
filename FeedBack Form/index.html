@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<form id="feedbackForm">
+
+<h2>Feedback Form</h2>
+
+<label>Name</label>
+<input type="text" id="name" required>
+
+<label>Email</label>
+<input type="email" id="email" required>
+
+<label>Rating</label>
+<select id="rating">
+    <option>Excellent</option>
+    <option>Good</option>
+    <option>Average</option>
+    <option>Poor</option>
+</select>
+
+<label>Your Feedback</label>
+<textarea id="message" rows="4" required></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<script src="script.js"></script>
+
+</body>
+</html>

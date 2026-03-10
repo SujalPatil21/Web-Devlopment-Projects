@@ -1,0 +1,29 @@
+body{
+    font-family: Arial;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+}
+
+form{
+    width: 320px;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+}
+
+input, select, textarea{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    background: blue;
+    color: white;
+    border: none;
+}
