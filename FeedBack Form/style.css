@@ -1,29 +1,62 @@
-body{
-    font-family: Arial;
+body {
+    margin: 0; /* critical fix */
+    font-family: Arial, sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f2f2f2;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
 }
 
-form{
+form {
     width: 320px;
     padding: 25px;
     background: white;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-input, select, textarea{
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
 }
 
-button{
+label {
+    font-weight: bold;
+    color: #444;
+    font-size: 14px;
+}
+
+input, select, textarea {
     width: 100%;
     padding: 10px;
-    background: blue;
+    margin: 8px 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* Focus effect */
+input:focus, select:focus, textarea:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.4);
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #6c63ff, #5a54d1);
     color: white;
     border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #5a54d1, #4742b3);
 }
