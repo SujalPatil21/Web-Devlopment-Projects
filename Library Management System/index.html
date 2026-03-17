@@ -1,73 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Library Management System</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Header -->
 <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" class="logo">
-    <h1>Library Management System</h1>
+<img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" class="logo">
+<h1>Library Management System</h1>
 </header>
 
-<!-- Banner -->
-<div class="banner">
-    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
-</div>
-
-<!-- Main Container -->
 <div class="container">
 
-    <!-- Add Book -->
-    <section class="form-section">
-        <h2>Add New Book</h2>
+<section class="form-section">
 
-        <form id="bookForm">
+<h2>Add New Book</h2>
 
-            <label>Book Name</label>
-            <input type="text" id="bookName" required>
+<form id="bookForm">
 
-            <label>Author</label>
-            <input type="text" id="author" required>
+<label>Book ID</label>
+<input type="text" id="bookId" required>
 
-            <label>Book ID</label>
-            <input type="text" id="bookId" required>
+<label>Book Name</label>
+<input type="text" id="bookName" required>
 
-            <label>Category</label>
-            <input type="text" id="category" required>
+<label>Author</label>
+<input type="text" id="author" required>
 
-            <button type="submit">Add Book</button>
+<label>Category</label>
+<input type="text" id="category" required>
 
-        </form>
-    </section>
+<button type="submit">Add Book</button>
 
-    <!-- Book Table -->
-    <section class="table-section">
-        <h2>Available Books</h2>
+</form>
 
-        <table>
+</section>
 
-            <thead>
-                <tr>
-                    <th>Book ID</th>
-                    <th>Name</th>
-                    <th>Author</th>
-                    <th>Category</th>
-                </tr>
-            </thead>
 
-            <tbody id="bookTableBody">
-            </tbody>
+<section class="table-section">
 
-        </table>
-    </section>
+<h2>Library Books</h2>
+
+<input type="text" id="searchInput" placeholder="Search books..." class="search">
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Author</th>
+<th>Category</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="bookTableBody"></tbody>
+
+</table>
+
+</section>
 
 </div>
 
+
+<section class="contact-section">
+
+<div class="contact-container">
+
+<h2>Contact Library</h2>
+<p class="contact-subtitle">For any queries related to books, issues, or library access.</p>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h3>Library</h3>
+<p>College Central Library</p>
+</div>
+
+<div class="contact-card">
+<h3>Email</h3>
+<p>library@college.edu</p>
+</div>
+
+<div class="contact-card">
+<h3>Phone</h3>
+<p>+91 9876543210</p>
+</div>
+
+<div class="contact-card">
+<h3>Address</h3>
+<p>Main Campus Library Building</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+<p>Library Management System © 2026</p>
+</footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
