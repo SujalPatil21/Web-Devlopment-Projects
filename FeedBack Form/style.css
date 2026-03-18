@@ -1,19 +1,20 @@
 body {
-    margin: 0; /* critical fix */
+    margin: 0;
     font-family: Arial, sans-serif;
-    height: 100vh;
+    min-height: 100vh; /* important */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* move form to top */
+    padding: 30px 0; /* spacing */
     background: linear-gradient(135deg, #74ebd5, #ACB6E5);
 }
-
 form {
-    width: 320px;
-    padding: 25px;
+    width: 100%;
+    max-width: 420px; /* better than fixed 320 */
+    padding: 30px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 h2 {

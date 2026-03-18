@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Feedback Form</title>
+    <title>Advanced Feedback Form</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,13 +11,33 @@
 
 <h2>Feedback Form</h2>
 
+<!-- Basic Info -->
 <label>Name</label>
 <input type="text" id="name" required>
 
 <label>Email</label>
 <input type="email" id="email" required>
 
-<label>Rating</label>
+<!-- Satisfaction -->
+<label>1. How satisfied are you with our service?</label>
+<select id="satisfaction">
+    <option>Very Satisfied</option>
+    <option>Satisfied</option>
+    <option>Neutral</option>
+    <option>Unsatisfied</option>
+</select>
+
+<!-- Ease of Use -->
+<label>2. How easy was it to use our system?</label>
+<select id="ease">
+    <option>Very Easy</option>
+    <option>Easy</option>
+    <option>Average</option>
+    <option>Difficult</option>
+</select>
+
+<!-- Rating -->
+<label>3. Overall Rating</label>
 <select id="rating">
     <option>Excellent</option>
     <option>Good</option>
@@ -25,10 +45,54 @@
     <option>Poor</option>
 </select>
 
-<label>Your Feedback</label>
-<textarea id="message" rows="4" required></textarea>
+<!-- Recommendation -->
+<label>4. Would you recommend us?</label>
+<div>
+    <input type="radio" name="recommend" value="Yes"> Yes
+    <input type="radio" name="recommend" value="No"> No
+</div>
 
-<button type="submit">Submit</button>
+<!-- Speed -->
+<label>5. How fast was our service?</label>
+<select id="speed">
+    <option>Very Fast</option>
+    <option>Fast</option>
+    <option>Slow</option>
+    <option>Very Slow</option>
+</select>
+
+<!-- Support -->
+<label>6. Was our support helpful?</label>
+<div>
+    <input type="radio" name="support" value="Yes"> Yes
+    <input type="radio" name="support" value="No"> No
+    <input type="radio" name="support" value="Not Used"> Not Used
+</div>
+
+<!-- Best Part -->
+<label>7. What did you like the most?</label>
+<textarea id="likes" rows="3" required></textarea>
+
+<!-- Issues -->
+<label>8. What issues did you face?</label>
+<textarea id="issues" rows="3"></textarea>
+
+<!-- Improvements -->
+<label>9. What improvements would you suggest?</label>
+<textarea id="improvements" rows="3"></textarea>
+
+<!-- Reuse -->
+<label>10. Would you use our service again?</label>
+<select id="reuse">
+    <option>Yes</option>
+    <option>No</option>
+</select>
+
+<!-- Final Message -->
+<label>Additional Feedback</label>
+<textarea id="message" rows="4"></textarea>
+
+<button type="submit">Submit Feedback</button>
 
 </form>
 
