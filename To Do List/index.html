@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujal – My Calendar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- LOGIN VIEW -->
+  <div id="login-view"
+    style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background: var(--bg-main);">
+    <div class="login-card">
+      <div class="logo" style="justify-content: center; border: none; margin-bottom: 20px;">
+        <div class="logo-icon">📅</div>
+        <span style="font-size: 20px; color: var(--text-color);"> Calendar</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" id="login-email" class="form-input" placeholder="Enter your email">
+        <div id="login-email-error" class="error-msg"></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" id="login-password" class="form-input" placeholder="Enter your password">
+        <div id="login-password-error" class="error-msg"></div>
+      </div>
+      <div id="login-general-error" class="error-msg" style="text-align: center; margin-bottom: 10px;"></div>
+      <button class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 14px; padding: 10px;"
+        onclick="handleLogin()">Login</button>
+    </div>
+  </div>
+
+  <!-- APP VIEW -->
+  <div id="app-view" style="display: none; flex: 1; width: 100%; height: 100%; overflow: hidden;">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">📅</div>
+        Sujal
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-label">Main Menu</div>
+        <div class="nav-item" id="nav-dashboard" onclick="showSection('dashboard-section')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+          </svg>
+          Dashboard
+        </div>
+        <div class="nav-item active" id="nav-calendar" onclick="showSection('calendar-section')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+          My Calendar
+        </div>
+        <div class="nav-item" id="nav-notes" onclick="showSection('notes-section')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+          </svg>
+          My Notes
+        </div>
+        <div class="nav-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Teams
+        </div>
+        <div class="nav-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+          </svg>
+          Integrations
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-label">Others</div>
+        <div class="nav-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.07 4.93A10 10 0 1 0 4.93 19.07 10 10 0 0 0 19.07 4.93z" />
+          </svg>
+          Settings
+        </div>
+        <div class="nav-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          Security
+        </div>
+        <div class="nav-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 16v-4M12 8h.01" />
+          </svg>
+          Help Me
+        </div>
+        <div class="nav-item" style="color: var(--danger-color); margin-top: auto;" onclick="logout()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Logout
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="plan-card">
+          <h4> Starter Plan</h4>
+          <p>Upgrade to enterprise & get attractive discounts.</p>
+          <a href="#">Upgrade Plan →</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <h1 id="topbar-title">My Calendar</h1>
+        <div class="tabs" id="view-tabs">
+          <button class="tab active" onclick="setTab('weekly',this)">Weekly</button>
+          <button class="tab" onclick="setTab('monthly',this)">Monthly</button>
+          <button class="tab" onclick="setTab('yearly',this)">Yearly</button>
+        </div>
+        <div style="flex:1"></div>
+        <svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="2" viewBox="0 0 24 24"
+          style="cursor:pointer">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+        <svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="2" viewBox="0 0 24 24"
+          style="cursor:pointer">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" />
+        </svg>
+        <div id="user-welcome-text"
+          style="font-size: 14px; font-weight: 600; color: var(--text-color); margin-right: 8px;"></div>
+        <div class="avatar" id="user-avatar" title="Sujal">S</div>
+      </header>
+
+      <!-- DASHBOARD VIEW -->
+      <div class="content section" id="dashboard-section" style="display: none; padding: 32px; overflow-y: auto;">
+        <h2 style="margin-bottom: 24px;">Dashboard Summary</h2>
+
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 32px;">
+          <div class="stat-card"
+            style="background: var(--bg-card); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border-color);">
+            <div style="color: var(--muted-color); font-size: 14px; margin-bottom: 8px;">Total Tasks</div>
+            <div id="dash-total" style="font-size: 28px; font-weight: 700; color: var(--text-color);">0</div>
+          </div>
+          <div class="stat-card"
+            style="background: var(--bg-card); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border-color);">
+            <div style="color: var(--muted-color); font-size: 14px; margin-bottom: 8px;">Completed</div>
+            <div id="dash-completed" style="font-size: 28px; font-weight: 700; color: #10b981;">0</div>
+          </div>
+          <div class="stat-card"
+            style="background: var(--bg-card); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border-color);">
+            <div style="color: var(--muted-color); font-size: 14px; margin-bottom: 8px;">Pending</div>
+            <div id="dash-pending" style="font-size: 28px; font-weight: 700; color: #f59e0b;">0</div>
+          </div>
+          <div class="stat-card"
+            style="background: var(--bg-card); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border-color);">
+            <div style="color: var(--muted-color); font-size: 14px; margin-bottom: 8px;">Overdue</div>
+            <div id="dash-overdue" style="font-size: 28px; font-weight: 700; color: var(--danger-color);">0</div>
+          </div>
+        </div>
+
+        <h3 style="margin-bottom: 16px;">Recent Activity</h3>
+        <div id="dash-recent" style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- Recent tasks go here -->
+        </div>
+      </div>
+
+      <!-- CALENDAR VIEW -->
+      <div class="content section" id="calendar-section">
+        <div class="toolbar">
+          <button class="btn" onclick="exportSchedules()">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+            Export
+          </button>
+          <button class="btn" onclick="showDeleted()">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polyline points="3 6 5 6 21 6" />
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+              <path d="M10 11v6M14 11v6" />
+            </svg>
+            Deleted
+          </button>
+          <div class="period-nav">
+            <button class="nav-btn" onclick="prevWeek()">‹</button>
+            <span id="period-label">Apr 14 – Apr 20, 2024</span>
+            <button class="nav-btn" onclick="nextWeek()">›</button>
+            <button class="btn" style="margin-left:4px;" onclick="goToday()">Today</button>
+          </div>
+          <button class="btn btn-primary" onclick="openCreateModal()">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Create
+          </button>
+        </div>
+        <p class="week-sub" id="week-sub"></p>
+
+        <div class="cal-wrap">
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+      </div>
+
+      <!-- NOTES VIEW -->
+      <div class="content section" id="notes-section" style="display:none;">
+        <div class="toolbar">
+          <h2 style="font-size:16px;font-weight:700;flex:1;">My Notes</h2>
+          <button class="btn btn-primary" onclick="openNoteModal()">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            New Note
+          </button>
+        </div>
+        <div class="notes-area" id="notes-list"></div>
+      </div>
+    </div>
+
+    <!-- ── CREATE SCHEDULE MODAL ── -->
+    <div class="overlay" id="create-overlay" onclick="closeIfBg(event,'create-overlay')">
+      <div class="modal">
+        <button class="modal-close" onclick="closeModal('create-overlay')">×</button>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <svg width="20" height="20" fill="none" stroke="var(--blue)" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+          <h2>Create Schedule</h2>
+        </div>
+        <p class="sub">Fill in the data below to add a schedule</p>
+
+        <div class="form-group">
+          <label class="form-label">Mark Schedule</label>
+          <select class="form-select" id="ev-category">
+            <option value="blue">Audience</option>
+            <option value="purple">Meeting</option>
+            <option value="green">Task</option>
+            <option value="amber">Event</option>
+            <option value="pink">Personal</option>
+            <option value="red">Urgent</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Color</label>
+          <div class="color-row" id="color-row">
+            <div class="color-swatch selected" data-c="blue" style="background:#2563EB;"
+              onclick="pickColor(this,'blue')">
+            </div>
+            <div class="color-swatch" data-c="purple" style="background:#8B5CF6;" onclick="pickColor(this,'purple')">
+            </div>
+            <div class="color-swatch" data-c="green" style="background:#10B981;" onclick="pickColor(this,'green')">
+            </div>
+            <div class="color-swatch" data-c="amber" style="background:#F59E0B;" onclick="pickColor(this,'amber')">
+            </div>
+            <div class="color-swatch" data-c="pink" style="background:#EC4899;" onclick="pickColor(this,'pink')"></div>
+            <div class="color-swatch" data-c="red" style="background:#EF4444;" onclick="pickColor(this,'red')"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Title Schedule</label>
+          <input class="form-input" id="ev-title" type="text" placeholder="e.g. Ideation marketplace app">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Date &amp; Time</label>
+          <input class="form-input" id="ev-date" type="date" style="margin-bottom:8px;">
+          <div class="time-row">
+            <input class="form-input" id="ev-start" type="time" value="08:00">
+            <span class="time-sep">–</span>
+            <input class="form-input" id="ev-end" type="time" value="09:00">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Notes (optional)</label>
+          <input class="form-input" id="ev-notes" type="text" placeholder="Short description…">
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn" onclick="closeModal('create-overlay')">Cancel</button>
+          <button class="btn btn-primary" onclick="saveEvent()">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── NOTE MODAL ── -->
+    <div class="overlay" id="note-overlay" onclick="closeIfBg(event,'note-overlay')">
+      <div class="modal">
+        <button class="modal-close" onclick="closeModal('note-overlay')">×</button>
+        <h2>New Note</h2>
+        <p class="sub">Jot down anything you want to remember</p>
+        <div class="form-group">
+          <label class="form-label">Title</label>
+          <input class="form-input" id="note-title-input" type="text" placeholder="Note title…">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Content</label>
+          <textarea class="form-input" id="note-body-input" rows="4" placeholder="Write your note here…"
+            style="resize:vertical;"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button class="btn" onclick="closeModal('note-overlay')">Cancel</button>
+          <button class="btn btn-primary" onclick="saveNote()">Save Note</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── EVENT POPUP ── -->
+    <div class="ev-popup" id="ev-popup">
+      <h3 id="ep-title"></h3>
+      <div class="ep-time" id="ep-time"></div>
+      <span class="ep-cat" id="ep-cat"></span>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px;" id="ep-notes"></div>
+      <div class="ep-actions">
+        <button class="ep-btn" onclick="editEvent()">Edit</button>
+        <button class="ep-btn del" onclick="deleteEvent()">Delete</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </div>
+</body>
+
+</html>
