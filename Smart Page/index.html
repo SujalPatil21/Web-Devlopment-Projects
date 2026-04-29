@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Declares this is an HTML5 document -->
+
+<html>
+<head>
+    <title>My Smart Page</title>
+    <!-- This title appears on the browser tab -->
+</head>
+
+<body style="text-align:center; margin-top:50px; font-family:Arial;">
+    <!-- Body contains all visible content on the webpage -->
+
+    <h2>🤖 My Smart Page</h2>
+    <!-- Heading shown to user -->
+
+    <!-- Input box where user types text -->
+    <input type="text" id="text" placeholder="Type something..." />
+    
+    <br><br>
+    <!-- Adds space between elements -->
+
+    <!-- Button that triggers a function when clicked -->
+    <button onclick="checkMood()">Check Mood</button>
+
+    <!-- Paragraph where result will be displayed -->
+    <p id="result"></p>
+
+    <script>
+        // Function runs when button is clicked
+        function checkMood() {
+
+            // Get the text entered by user
+            let text = document.getElementById("text").value.toLowerCase();
+
+            // Variable to store result
+            let result = "";
+
+            // Check if input contains certain words
+            if (text.includes("happy")) {
+                result = "😊 You seem happy!";
+            } 
+            else if (text.includes("sad")) {
+                result = "😢 You seem sad!";
+            } 
+            else {
+                result = "🤔 I am not sure!";
+            }
+
+            // Display result on webpage
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+</html>
